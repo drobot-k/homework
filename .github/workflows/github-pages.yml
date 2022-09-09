@@ -24,4 +24,4 @@ jobs:
         run: npx ember build
 
       - name: Run deploy script
-        run: sh ./scripts/deploy-to-gh-pages.sh
+        run: sh ./scripts/github-pages.sh
