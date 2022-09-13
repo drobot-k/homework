@@ -1,5 +1,5 @@
 import EmberRouter from '@ember/routing/router';
-import config from './config/environment';
+import config from 'homework/config/environment';
 
 const Router = EmberRouter.extend({
   location: config.locationType,
@@ -7,6 +7,8 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('books');
+  this.route('speakers');
 });
 
 export default Router;
