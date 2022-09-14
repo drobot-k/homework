@@ -7,8 +7,13 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('books');
-  this.route('speakers');
+  this.route('books', { path: '/books'}, function() {
+    this.route('edit-book', { path: '/:id'});
+  });
+  this.route('speakers', { path: '/speakers'}, function() {
+    this.route('edit-speaker', { path: '/:id'});
+  });
+  this.route('404', { path: '*path'});
 });
 
 export default Router;
