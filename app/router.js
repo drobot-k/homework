@@ -9,6 +9,7 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('books', { path: '/books'}, function() {
     this.route('edit-book', { path: '/:id'});
+    this.route('delete-book');
   });
   this.route('speakers', { path: '/speakers'}, function() {
     this.route('edit-speaker', { path: '/:id'});
