@@ -13,19 +13,7 @@
       "rating": "29"
     },
     {
-      "id": 4,
-      "cover": "algorithms.jpg",
-      "title": "Вводный",
-      "author": "Томас Кормен",
-      "pages": "208",
-      "tags": [
-        "algorithms",
-        "programming"
-      ],
-      "rating": "29"
-    },
-    {
-      "id": 33,
+      "id": 3,
       "cover": "algorithms.jpg",
       "title": "курс",
       "author": "Томас Кормен",
@@ -37,9 +25,21 @@
       "rating": "29"
     },
     {
+      "id": 34,
+      "cover": "algorithms.jpg",
+      "title": "Вводный",
+      "author": "Томас Кормен",
+      "pages": "208",
+      "tags": [
+        "algorithms",
+        "programming"
+      ],
+      "rating": "29"
+    },
+    {
       "id": 4,
       "cover": "algorithms.jpg",
-      "title": "dvdvdv",
+      "title": "y",
       "author": "Томас Кормен",
       "pages": "208",
       "tags": [
@@ -48,7 +48,6 @@
       ],
       "rating": "29"
     }
-    
   ],
   "speakers": [
     {

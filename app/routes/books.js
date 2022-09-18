@@ -18,11 +18,5 @@ export default Route.extend({
                 }  
             }, 3000);
         });
-    },
-
-    // actions: {
-    //     refreshBooks() {
-    //         this.refresh();
-    //     }
-    // }
+    }
 });

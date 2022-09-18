@@ -1,19 +1,9 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service'
 
 export default Route.extend({
-    // beforeModel(transition) {
-    //     let chi = transition.router.currentHandlerInfos;
-    //     let currentRouteName = this.get('routeName');
-    //     let prevRouteName = '';
-    //     if (chi && chi.length > 0) {
-    //         let lastRouteName = chi[chi.length - 1].name;
-    //         prevRouteName = lastRouteName === 'loading' ? chi[chi.length - 2].name : currentRouteName;
-    //     }
-
-    //     if (prevRouteName != currentRouteName && prevRouteName != 'application') {
-    //         transition.promise.then(() => {
-    //             this.send('refreshBooks');
-    //         });
-    //     }
-    // }
+    dataService: service ('data'),
+    model({id}) {
+        return this.get("dataService").getBookId(id);
+    }
 });
