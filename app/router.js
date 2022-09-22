@@ -9,12 +9,12 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('books', { path: '/books'}, function() {
     this.route('edit-book', { path: '/:id'});
-    this.route('delete-book');
   });
   this.route('speakers', { path: '/speakers'}, function() {
     this.route('edit-speaker', { path: '/:id'});
   });
   this.route('404', { path: '*path'});
+  this.route('error', { path: '/:error'});
 });
 
 export default Router;

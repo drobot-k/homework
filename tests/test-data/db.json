@@ -1,75 +1,15 @@
 {
   "books": [
-    {
-      "id": 334,
-      "cover": "algorithms.jpg",
-      "title": "Вводный курс",
-      "author": "Томас Кормен",
-      "pages": "208",
-      "tags": [
-        "algorithms",
-        "programming"
-      ],
-      "rating": "29"
-    },
-    {
-      "id": 3,
-      "cover": "algorithms.jpg",
-      "title": "курс",
-      "author": "Томас Кормен",
-      "pages": "208",
-      "tags": [
-        "algorithms",
-        "programming"
-      ],
-      "rating": "29"
-    },
-    {
-      "id": 34,
-      "cover": "algorithms.jpg",
-      "title": "Вводный",
-      "author": "Томас Кормен",
-      "pages": "208",
-      "tags": [
-        "algorithms",
-        "programming"
-      ],
-      "rating": "29"
-    },
-    {
-      "id": 4,
-      "cover": "algorithms.jpg",
-      "title": "y",
-      "author": "Томас Кормен",
-      "pages": "208",
-      "tags": [
-        "algorithms",
-        "programming"
-      ],
-      "rating": "29"
-    }
+      { "id": 1, "cover": "javascript_fast.jpg", "title": "Современный JavaScript для нетерпеливых", "author": "Кэй С. Хорстман", "pages": "288", "tags": ["javascript", "programming"], "rating": "75" },
+      { "id": 2, "cover": "javascript_strong.jpeg", "title": "Javascript. Сильные стороны", "author": "Дуглас Крокфорд", "pages": "176", "tags": ["javascript", "programming"], "rating": "80" },
+      { "id": 3, "cover": "algorithms.jpg", "title": "Алгоритмы. Вводный курс", "author": "Томас Кормен", "pages": "208", "tags": ["algorithms", "programming"], "rating": "29" },
+      { "id": 4, "cover": "machine_learning.jpg", "title": "Глубокое обучение", "author": "Ян Гудфеллоу", "pages": "653", "tags": ["machine_learning", "programming"], "rating": "56" }
   ],
+
   "speakers": [
-    {
-      "id": 1,
-      "photo": "speaker1.png",
-      "surname": "Дробот",
-      "name": "Карина",
-      "fName": "Рустамовна"
-    },
-    {
-      "id": 3,
-      "photo": "speaker3.png",
-      "surname": "Акитов",
-      "name": "Артур",
-      "fName": "Матвеевич"
-    },
-    {
-      "id": 4,
-      "photo": "speaker4.png",
-      "surname": "Кинкот",
-      "name": "Дарья",
-      "fName": "Максимовна"
-    }
+      { "id": 1, "photo": "speaker1.png", "surname": "Дробот", "name": "Карина", "fName": "Рустамовна" },
+      { "id": 2, "photo": "speaker2.png", "surname": "Крестьянова", "name": "Ярослава", "fName": "Андреевна" },
+      { "id": 3, "photo": "speaker3.png", "surname": "Акитов", "name": "Артур", "fName": "Матвеевич" },
+      { "id": 4, "photo": "speaker4.png", "surname": "Кинкот", "name": "Дарья", "fName": "Максимовна" }
   ]
 }

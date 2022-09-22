@@ -1,3 +1,4 @@
+{{outlet}}
 <div class="container h-100">
     <div class="htop">
       <h2 class="text-center">Книги</h2>
@@ -31,10 +32,10 @@
                       tags=book.tags
                       rating=book.rating
                       idBook=book.id
-                      tagName=''}}
+                      tagName=''
+                      deleteBook=(action "deleteBook")
+                      }}
         {{/each}}
       </div>
-    </div>
+    </div>   
 </div>
-
-{{outlet}}

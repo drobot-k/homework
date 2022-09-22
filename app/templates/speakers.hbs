@@ -1,3 +1,4 @@
+{{outlet}}
 <div class="container h-100">
     <div class="htop">
         <h2 class="text-center">Спикеры</h2>
@@ -23,10 +24,10 @@
                                 name=speaker.name
                                 fName=speaker.fName
                                 idSpeaker=speaker.id
-                                tagName=''}}
+                                tagName=''
+                                deleteSpeaker=(action "deleteSpeaker")
+                                }}
             {{/each}}
         </div>
     </div>
-</div> 
-
-{{outlet}}
+</div>

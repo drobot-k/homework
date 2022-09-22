@@ -16,7 +16,13 @@ export default Route.extend({
                 catch (e) {
                     reject('Connection failed');
                 }   
-            }, 3000);
+            }, 1000);
         });
+    },
+
+    actions: {
+        refreshSpeakers() {
+            this.refresh();
+        }
     }
 });

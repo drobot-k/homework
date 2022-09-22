@@ -1,5 +1,9 @@
 <div class="container h-100">
     <div class="row align-items-center h-100 home-page-nav">
-        <img src="./images/error.gif" alt="Error">
+        {{!-- <img src="./images/error.gif" alt="Error"> --}}
+        {{#if model.error}}
+            <h2>Error: {{model.error}}</h2>
+        {{else}}<h2>Error</h2>
+        {{/if}}
     </div>
 </div>
