@@ -1,20 +1,28 @@
 import Controller from '@ember/controller';
-import { inject as service } from '@ember/service'
+import { inject as service } from '@ember/service';
+import EmberObject from '@ember/object';
 
 export default Controller.extend({
+    init() {
+        this._super(...arguments);
+        this.set('book', EmberObject.create());
+        this.get('book').set('title', '');
+        this.get('book').set('author', '');
+        this.get('book').set('pages', '');
+        this.get('book').set('description', '');
+        this.get('book').set('tags', '');
+    },
+
     dataService: service ('data'),
     actions: {
-        async saveBook(e) {
-            e.preventDefault();
-
+        async saveBook(book) {
             await this.get("dataService").createBook({
-                title: this.get('title'),
-                author: this.get('authorName'),
-                pages: this.get('numberOfPages'),
-                description: this.get('linkDescription'),
-                tags: this.get('tags'),
+                title: book.title,
+                author: book.author,
+                pages: book.pages,
+                description: book.description,
+                tags: book.tags,
             });
-
             this.transitionToRoute('books.index');
         },
 
@@ -22,16 +30,16 @@ export default Controller.extend({
             this.set('title', title);
         },
 
-        createAuthorName(authorName) {
-            this.set('authorName', authorName);
+        createAuthorName(author) {
+            this.set('author', author);
         },
 
-        createNumberOfPages(numberOfPages) {
-            this.set('numberOfPages', numberOfPages);
+        createNumberOfPages(pages) {
+            this.set('pages', pages);
         },
 
-        createLinkDescription(linkDescription) {
-            this.set('linkDescription', linkDescription);
+        createLinkDescription(description) {
+            this.set('description', description);
         },
 
         createTags(tags) {

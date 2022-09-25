@@ -1,17 +1,23 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service'
+import EmberObject from '@ember/object';
 
 export default Controller.extend({
+    init() {
+        this._super(...arguments);
+        this.set('speaker', EmberObject.create());
+        this.get('speaker').set('surname', '');
+        this.get('speaker').set('name', '');
+        this.get('speaker').set('fName', '');
+    },
+
     dataService: service ('data'),
     actions: {
-        async saveSpeaker(e) {
-            e.preventDefault();
-
+        async saveSpeaker(speaker) {
             await this.get("dataService").createSpeaker({
-                surname: this.get('surname'),
-                name: this.get('name'),
-                fName: this.get('fName'),
-
+                surname:speaker.surname,
+                name:speaker.name,
+                fName:speaker.fName,
             });
 
             this.transitionToRoute('speakers.index');

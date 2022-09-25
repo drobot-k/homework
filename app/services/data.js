@@ -42,11 +42,19 @@ export default Service.extend({
         });
     },
 
-    editBook(id) {
-        return fetch (`${ENV.backendURL}/books/${id}`, {
+    updateBook(book) {
+        return fetch (`${ENV.backendURL}/books/${book.id}`, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(id),
+            body: JSON.stringify(book),
+        });
+    },
+
+    updateSpeaker(speaker) {
+        return fetch (`${ENV.backendURL}/speakers/${speaker.id}`, {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(speaker),
         });
     },
 });
