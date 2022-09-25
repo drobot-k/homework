@@ -24,6 +24,30 @@ export default Service.extend({
 
     deleteSpeaker(id) {
         return fetch (`${ENV.backendURL}/speakers/${id}`, {method: 'DELETE'});
-    }
+    },
+
+    createBook(id) {
+        return fetch (`${ENV.backendURL}/books`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(id),
+        });
+    },
+
+    createSpeaker(id) {
+        return fetch (`${ENV.backendURL}/speakers`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(id),
+        });
+    },
+
+    editBook(id) {
+        return fetch (`${ENV.backendURL}/books/${id}`, {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(id),
+        });
+    },
 });
 
