@@ -11,6 +11,7 @@ export default Controller.extend({
                 pages: book.pages,
                 description: book.description,
                 tags: book.tags,
+                // нужно передать тут id! ->
                 id: book.id,
             });
             this.transitionToRoute('books.index');

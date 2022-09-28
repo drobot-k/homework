@@ -2,12 +2,21 @@ import Service from '@ember/service';
 import ENV from 'homework/config/environment';
 
 export default Service.extend({
-    getBooks() {
-        return fetch (`${ENV.backendURL}/books`).then((response) => response.json());
+    getBooks(search) {
+        let queryParams = '';
+        if (search) {
+            queryParams=`?q=${search}`;
+        }
+
+        return fetch (`${ENV.backendURL}/books${queryParams}`).then((response) => response.json());
     },
 
-    getSpeakers() {
-        return fetch (`${ENV.backendURL}/speakers`).then((response) => response.json());
+    getSpeakers(search) {
+        let queryParams = '';
+        if (search) {
+            queryParams=`?q=${search}`;
+        }
+        return fetch (`${ENV.backendURL}/speakers${queryParams}`).then((response) => response.json());
     },
 
     getBookId(id) {

@@ -5,12 +5,17 @@ import { later } from '@ember/runloop'
 
 export default Route.extend({
     dataService: service ('data'),
+    queryParams: {
+        search: {
+            refreshModel: true
+        }
+    },
 
-    model() {
+    model({ search }) {
         return new Promise ((resolve, reject) => {
             later(async () => {
                 try {
-                    let speakers = await this.get("dataService").getSpeakers();  
+                    let speakers = search ? await this.get("dataService").getSpeakers(search) : await this.get("dataService").getSpeakers();  
                     resolve(speakers);
                 }
                 catch (e) {
@@ -19,10 +24,15 @@ export default Route.extend({
             }, 1000);
         });
     },
-
+    
     actions: {
         refreshSpeakers() {
             this.refresh();
+        },
+        
+        // loading(transition, originRoute) {
+            loading() {
+            return false;
         }
     }
 });

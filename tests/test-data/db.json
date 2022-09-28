@@ -1,21 +1,9 @@
 {
   "books": [
     {
-      "id": 1,
-      "cover": "javascript_fast.jpg",
-      "title": "Современный JavaScript для нетерпеливых",
-      "author": "Кэй С. Хорстман",
-      "pages": "288",
-      "tags": [
-        "javascript",
-        "programming"
-      ],
-      "rating": "75"
-    },
-    {
       "id": 2,
       "cover": "javascript_strong.jpeg",
-      "title": "Javascript. Сильные стороны",
+      "title": "Javascr",
       "author": "Дуглас Крокфорд",
       "pages": "176",
       "tags": [
