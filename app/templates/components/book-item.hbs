@@ -8,7 +8,7 @@
             <li class="list-group-item">
                 <div><strong>Автор</strong>: {{author}}</div>
                 <div><strong>Количество страниц</strong>: {{numberOfPages}}</div>
-                <div><strong>Теги</strong>: {{#each tags as |tag|}}<a href="#" class="tag-link"><span class="small">#{{tag}}</span></a>{{/each}}</div>
+                <div><strong>Теги</strong>: {{#each tags as |tag|}}<a href="?searchT={{tag}}" class="tag-link"><span class="small">#{{tag}}</span></a>{{/each}}</div>
             </li>
             <li class="list-group-item">
                 <div class="row">

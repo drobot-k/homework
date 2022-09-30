@@ -5,6 +5,6 @@ export default Component.extend({
         deleteBook(idBook) {
             this.get('deleteBook')(idBook);
         }
-    }
+    },
 
 });

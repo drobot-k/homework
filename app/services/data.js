@@ -2,14 +2,31 @@ import Service from '@ember/service';
 import ENV from 'homework/config/environment';
 
 export default Service.extend({
-    getBooks(search) {
+    getBooks(searchP, searchT) {
         let queryParams = '';
-        if (search) {
-            queryParams=`?q=${search}`;
+        if (searchP, searchT) {
+            queryParams=`?q=${searchP}&tags_like=${searchT}`;
+            return fetch (`${ENV.backendURL}/books${queryParams}`).then((response) => response.json());
         }
 
-        return fetch (`${ENV.backendURL}/books${queryParams}`).then((response) => response.json());
+        else if (searchP) {
+            queryParams=`?q=${searchP}`;
+            return fetch (`${ENV.backendURL}/books${queryParams}`).then((response) => response.json());
+        }
+
+        else if (searchT) {
+            queryParams=`?tags_like=${searchT}`;
+            return fetch (`${ENV.backendURL}/books${queryParams}`).then((response) => response.json());
+        }
+
+        else {
+            return fetch (`${ENV.backendURL}/books`).then((response) => response.json());
+        }
     },
+
+    // getBooks() {
+    //     return fetch (`${ENV.backendURL}/books`).then((response) => response.json());
+    // },
 
     getSpeakers(search) {
         let queryParams = '';
@@ -18,6 +35,10 @@ export default Service.extend({
         }
         return fetch (`${ENV.backendURL}/speakers${queryParams}`).then((response) => response.json());
     },
+
+    // getSpeakers() {
+    //     return fetch (`${ENV.backendURL}/speakers`).then((response) => response.json());
+    // },
 
     getBookId(id) {
         return fetch (`${ENV.backendURL}/books/${id}`).then((response) => response.json());

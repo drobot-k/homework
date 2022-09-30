@@ -6,16 +6,16 @@ import { later } from '@ember/runloop'
 export default Route.extend({
     dataService: service ('data'),
     queryParams: {
-        search: {
-            refreshModel: true
-        }
+        searchP: true,
+        searchT: true
     },
 
-    model({ search }) {
+    model({searchP, searchT}) {
         return new Promise ((resolve, reject) => {
             later(async () => {
                 try {
-                    let books = search ? await this.get("dataService").getBooks(search) : await this.get("dataService").getBooks();  
+                    // eslint-disable-next-line no-constant-condition
+                    let books = {searchP, searchT} ? await this.get("dataService").getBooks(searchP, searchT) : await this.get("dataService").getBooks();  
                     resolve(books);
                 }
                 catch (e) {
@@ -31,8 +31,8 @@ export default Route.extend({
         },
         
         // loading(transition, originRoute) {
-            loading() {
-            return false;
-        }
+        //     loading() {
+        //     return false;
+        // }
     }
 });

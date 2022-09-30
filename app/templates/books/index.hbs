@@ -12,14 +12,14 @@
           {{/link-to}}
         </div>
         <div class="col-md-auto">
-          <form class="form-inline">
-            {{input class="form-control mr-2 search-long" type="search" placeholder="Найти по полям" aria-label="Найти по полям" value=search}}
+          <form class="form-inline" onsubmit={{action "search"}}>
+            {{input class="form-control mr-2 search-long" type="search" placeholder="Найти по полям, по полям синий трактор едет к нам" aria-label="Найти по полям" value=searchP}}
             <button class="btn btn-primary my-2" type="submit">Найти</button>
           </form>
         </div>
         <div class="col-md-auto">
-          <form class="form-inline">
-            {{input class="form-control mr-2" type="search" placeholder="Поиск по тегам" aria-label="Найти по тегам"}}
+          <form class="form-inline" onsubmit={{action "search"}}>
+            {{input class="form-control mr-2" type="search" placeholder="Поиск по тегам" aria-label="Найти по тегам" value=searchT}}
             <button class="btn btn-primary my-2" type="submit">Поиск</button>
           </form>
         </div>

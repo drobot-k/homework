@@ -4,6 +4,11 @@ import { inject as service } from '@ember/service'
 
 export default Controller.extend({
     dataService: service ('data'),
+    queryParams: ["searchP", "searchT"],
+    //дефолтное значение
+    searchP: '',
+    searchT: '',
+
     actions: {
         async deleteBook(id) {
             try {
@@ -15,8 +20,11 @@ export default Controller.extend({
                 this.send('error', new Error ('Connection failed'));
             }
         },
-    },
 
-    queryParams: ["search"],
-    search: '',
+        search(s) {
+            s.preventDefault(); 
+            this.get('dataService').getBooks(this.get('searchP', 'searchT'));
+            this.send('refreshBooks');
+        },
+    },
 });
