@@ -10,7 +10,7 @@ export default Controller.extend({
         this.get('book').set('author', '');
         this.get('book').set('pages', '');
         this.get('book').set('description', '');
-        this.get('book').set('tags', '');
+        this.get('book').set('tags', []);
     },
 
     dataService: service ('data'),

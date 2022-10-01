@@ -1,26 +1,13 @@
 {
   "books": [
     {
-      "id": 2,
-      "cover": "javascript_strong.jpeg",
-      "title": "Javascr",
-      "author": "Дуглас Крокфорд",
-      "pages": "176",
-      "tags": [
-        "javascript",
-        "programming"
-      ],
-      "rating": "80"
-    },
-    {
       "id": 3,
       "cover": "algorithms.jpg",
       "title": "Алгоритмы. Вводный курс",
       "author": "Томас Кормен",
       "pages": "208",
       "tags": [
-        "algorithms",
-        "programming"
+        "kfgkfgk"
       ],
       "rating": "29"
     },
@@ -31,8 +18,7 @@
       "author": "Ян Гудфеллоу",
       "pages": "653",
       "tags": [
-        "machine_learning",
-        "programming"
+        "врвр"
       ],
       "rating": "56"
     }
