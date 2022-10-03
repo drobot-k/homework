@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import Service from '@ember/service';
 import ENV from 'homework/config/environment';
 

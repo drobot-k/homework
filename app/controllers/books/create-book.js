@@ -13,7 +13,6 @@ export default Controller.extend({
         this.get('book').set('pages', '');
         this.get('book').set('description', '');
         this.get('book').set('tags', []);
-        this.get('book').set('cover', '');
     },
 
     dataService: service ('data'),
@@ -21,15 +20,7 @@ export default Controller.extend({
         async saveBook(book, uploadData) {
             // e.preventDefault();
 
-            await this.get("dataService").createBook({
-                title: book.title,
-                author: book.author,
-                pages: book.pages,
-                description: book.description,
-                tags: book.tags,
-                cover: book.cover,
-            });
-            console.log ('сюда', book, uploadData)
+            await this.get("dataService").createBook(book, uploadData);
             this.transitionToRoute('books.index');
         },
 

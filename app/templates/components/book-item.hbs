@@ -1,6 +1,6 @@
 <div class="col mb-4">
     <div class="card">
-            <img src="{{env 'rootURL'}}images/{{cover}}" class="card-img-top" alt="Обложка книги">
+            <img src={{if coverURL coverURL 'images/book.jpg'}} class="card-img-top" alt="Обложка книги">
         <div class="card-header">
             <h5 class="card-title">{{title}}</h5>
         </div>
@@ -17,7 +17,7 @@
                     </div>
                     <div class="col">
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: {{rating}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{rating}}%</div>
+                            <div class="progress-bar" role="progressbar" style="width: {{if rating rating '100'}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{if rating rating 'пока никто не оценил'}} %</div>
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
         <div class="card-footer">
             <div class="row">
                 <div class="col">
-                    <a href="#" class="card-link line-offset">Описание</a>
+                    <a href={{description}}  class="card-link line-offset">Описание</a>
                 </div>
                 <div class="col text-right">
                     {{#link-to "books.edit-book" idBook}}
