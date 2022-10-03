@@ -57,7 +57,7 @@ export default Component.extend({
                 author: this.get('author'),
                 pages: this.get('pages'),
                 description: this.get('description'),
-                tags: this.get('tags')
+                tags: this.get('tags'),
             }, uploadData);
             set(this, 'isUploadingFile', false);
         },
@@ -127,7 +127,7 @@ export default Component.extend({
             author: this.get('book.author'),
             pages: this.get('book.pages'),
             description: this.get('book.description'),
-            tags: this.get('book.tags')
+            tags: this.get('book.tags'),
         });
     },
 });

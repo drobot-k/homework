@@ -1,6 +1,8 @@
+/* eslint-disable no-console */
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import EmberObject from '@ember/object';
+// import { get, set } from '@ember/object';
 
 export default Controller.extend({
     init() {
@@ -15,14 +17,10 @@ export default Controller.extend({
 
     dataService: service ('data'),
     actions: {
-        async saveBook(book) {
-            await this.get("dataService").createBook({
-                title: book.title,
-                author: book.author,
-                pages: book.pages,
-                description: book.description,
-                tags: book.tags,
-            });
+        async saveBook(book, uploadData) {
+            // e.preventDefault();
+
+            await this.get("dataService").createBook(book, uploadData);
             this.transitionToRoute('books.index');
         },
 
