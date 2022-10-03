@@ -1,6 +1,7 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const funnel = require('broccoli-funnel');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
@@ -26,6 +27,14 @@ module.exports = function(defaults) {
   app.import('vendor/popper.min.js');
   app.import('vendor/tagsinput.css');
   app.import('vendor/tagsinput.js');
+  app.import('vendor/jquery-ui.js');
+  app.import('vendor/jquery.blobajaxtransport.js');
+  app.import('vendor/jquery.flexberry.downloadFile.js');
 
-  return app.toTree();
+  const jqueryFiles = funnel ('node_modules/blueimp-file-upload/js', {
+    files: ['**/*.js'],
+    destDir: 'js'
+  });
+
+  return app.toTree([jqueryFiles]);
 };

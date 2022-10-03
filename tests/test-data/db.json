@@ -1,13 +1,38 @@
 {
   "books": [
     {
+      "id": 1,
+      "cover": "javascript_fast.jpg",
+      "title": "Современный JavaScript для нетерпеливых",
+      "author": "Кэй С. Хорстман",
+      "pages": "288",
+      "tags": [
+        "javascript",
+        "programming"
+      ],
+      "rating": "75"
+    },
+    {
+      "id": 2,
+      "cover": "javascript_strong.jpeg",
+      "title": "Javascript. Сильные стороны",
+      "author": "Дуглас Крокфорд",
+      "pages": "176",
+      "tags": [
+        "javascript",
+        "programming"
+      ],
+      "rating": "80"
+    },
+    {
       "id": 3,
       "cover": "algorithms.jpg",
       "title": "Алгоритмы. Вводный курс",
       "author": "Томас Кормен",
       "pages": "208",
       "tags": [
-        "kfgkfgk"
+        "algorithms",
+        "programming"
       ],
       "rating": "29"
     },
@@ -18,7 +43,8 @@
       "author": "Ян Гудфеллоу",
       "pages": "653",
       "tags": [
-        "врвр"
+        "machine_learning",
+        "programming"
       ],
       "rating": "56"
     }
