@@ -58,6 +58,7 @@ export default Component.extend({
                 pages: this.get('pages'),
                 description: this.get('description'),
                 tags: this.get('tags'),
+                cover: this.get('uploadData').files[0].name,
             }, uploadData);
             set(this, 'isUploadingFile', false);
         },
@@ -128,6 +129,7 @@ export default Component.extend({
             pages: this.get('book.pages'),
             description: this.get('book.description'),
             tags: this.get('book.tags'),
+            fileName: this.get('book.fileName'),
         });
     },
 });
