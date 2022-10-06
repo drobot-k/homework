@@ -28,29 +28,36 @@
   "speakers": [
     {
       "id": 1,
-      "photo": "speaker1.png",
+      "photo": "images/speaker1.png",
       "surname": "Дробот",
       "name": "Карина",
       "fName": "Рустамовна"
     },
     {
+      "id": 2,
+      "photo": "",
+      "surname": "Крестьянова",
+      "name": "Ярослава",
+      "fName": "Андреевна"
+    },
+    {
       "id": 3,
-      "photo": "speaker3.png",
+      "photo": "",
       "surname": "Акитов",
       "name": "Артур",
       "fName": "Матвеевич"
     },
     {
       "id": 4,
-      "photo": "speaker4.png",
+      "photo": "",
       "surname": "Кинкот",
       "name": "Дарья",
       "fName": "Максимовна"
     },
     {
-      "surname": "Крестьянова",
-      "name": "Ярослава",
-      "fName": "Андреевна",
+      "surname": "Дробот",
+      "name": "Андрей",
+      "fName": "Андреевич",
       "id": 5
     }
   ]

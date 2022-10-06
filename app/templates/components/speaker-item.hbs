@@ -1,6 +1,6 @@
 <div class="col mb-4">
     <div class="card">
-        <img src="{{env 'rootURL'}}images/{{photo}}" class="card-img-top" alt="Фото спикера">
+        <img src={{if photo photo 'images/default-speaker.jpg'}} class="card-img-top" alt="Фото спикера">
         <div class="card-body">
             <h5 class="card-title">
                 {{get-speaker-name surname name fName}}

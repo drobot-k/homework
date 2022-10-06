@@ -22,6 +22,7 @@ export default Controller.extend({
         },
 
         search(s) {
+            //preventDefault нужен для того, чтобы пользователь остался на текущей странице
             s.preventDefault(); 
             this.get('dataService').getBooks(this.get('searchP', 'searchT'));
             this.send('refreshBooks');
