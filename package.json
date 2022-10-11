@@ -20,6 +20,7 @@
     "@ember/optional-features": "^2.0.0",
     "bootstrap": "^4.6.2",
     "broccoli-asset-rev": "^2.4.5",
+    "crypto": "^1.0.1",
     "ember-ajax": "^3.0.0",
     "ember-bootstrap": "^3.1.4",
     "ember-cli": "~3.1.4",
@@ -43,7 +44,10 @@
     "ember-source": "~3.1.0",
     "ember-welcome-page": "^3.0.0",
     "eslint-plugin-ember": "^5.0.0",
+    "json-server": "^0.12.2",
+    "jsonwebtoken": "^8.5.1",
     "loader.js": "^4.2.3",
+    "node-fetch": "^3.2.10",
     "sass": "^1.54.9"
   },
   "engines": {
@@ -53,7 +57,6 @@
     "blueimp-file-upload": "^10.32.0",
     "broccoli-funnel": "^3.0.8",
     "fs": "0.0.1-security",
-    "json-server": "^0.17.0",
     "multer": "^1.4.5-lts.1",
     "path": "^0.12.7"
   }

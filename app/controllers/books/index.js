@@ -10,15 +10,8 @@ export default Controller.extend({
     searchT: '',
 
     actions: {
-        async deleteBook(id) {
-            try {
-                await this.get('dataService').deleteBook(id);
-                // eslint-disable-next-line ember/closure-actions
-                this.send('refreshBooks');
-            }
-            catch (e) {
-                this.send('error', new Error ('Connection failed'));
-            }
+        async deleteBook(book) {          
+            await book.destroyRecord();
         },
 
         search(s) {

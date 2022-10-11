@@ -14,11 +14,8 @@ export default Controller.extend({
     dataService: service ('data'),
     actions: {
         async saveSpeaker(speaker) {
-            await this.get("dataService").createSpeaker({
-                surname:speaker.surname,
-                name:speaker.name,
-                fName:speaker.fName,
-            });
+            let newSpeaker = this.get('store').createRecord('speaker', speaker);
+            await newSpeaker.save();
 
             this.transitionToRoute('speakers.index');
         },

@@ -8,15 +8,8 @@ export default Controller.extend({
     search: '',
 
     actions: {
-        async deleteSpeaker(id) {
-            try {
-                await this.get('dataService').deleteSpeaker(id);
-                // eslint-disable-next-line ember/closure-actions
-                this.send('refreshSpeakers');
-            }
-            catch (e) {
-                this.send('error', new Error ('Connection failed'));
-            }
+        async deleteSpeaker(speaker) {          
+            await speaker.destroyRecord();
         },
 
         searchSpeakers(s) {
