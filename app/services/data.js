@@ -49,8 +49,8 @@ export default Service.extend({
         return fetch (`${ENV.backendURL}/speakers/${id}`).then((response) => response.json());
     },
 
-    deleteBook(id) {
-        return fetch (`${ENV.backendURL}/books/${id}`, {method: 'DELETE'});
+    deleteBook(book) {
+        return fetch (`${ENV.backendURL}/books/${book}`, {method: 'DELETE'});
     },
 
     deleteSpeaker(id) {

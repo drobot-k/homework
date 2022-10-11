@@ -18,9 +18,9 @@ export default Controller.extend({
     dataService: service ('data'),
     actions: {
         async saveBook(book, uploadData) {
-            // e.preventDefault();
+            let newBook = this.get('store').createRecord('book', book, uploadData);
+            await newBook.save();
 
-            await this.get("dataService").createBook(book, uploadData);
             this.transitionToRoute('books.index');
         },
 

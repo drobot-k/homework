@@ -6,5 +6,6 @@ export default Route.extend ({
             transition.abort();   
         }
         this.intermediateTransitionTo('error', {error: error.message});
+        return true;
     }
 });
