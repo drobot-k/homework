@@ -1,88 +1,72 @@
 {
   "books": [
     {
-      "title": "Горы",
-      "type": "book",
-      "rating": "75",
-      "author": "Д.Л",
-      "pages": "454",
-      "description": "https://www.google.ru/",
-      "tags": [
-        "горы",
-        "ура у меня все работает"
-      ],
-      "id": 5,
-      "coverURL": "/uploads/gory-1664830563823.png"
-    },
-    {
-      "title": "Алгорит",
-      "type": "book",
-      "author": "Томас Кормен",
-      "pages": "208",
-      "description": "https://www.ozon.ru/product/algoritmy-vvodnyy-kurs-kormen-tomas-h-340767503/?asb=DnLfYJBijTyVscT8OCUncYxR3vtf400teiu9nlpNiZs%253D&asb2=G5N9mEQBFfd8NNlYiQoVALx0F5P0Hw-TaobCwcE1X2n_ti9ISIroDDBl7PZ0kLWk&keywords=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B.+%D0%92%D0%B2%D0%BE%D0%B4%D0%BD%D1%8B%D0%B9+%D0%BA%D1%83%D1%80%D1%81+%7C+%D0%9A%D0%BE%D1%80%D0%BC%D0%B5%D0%BD+%D0%A2%D0%BE%D0%BC%D0%B0%D1%81+%D0%A5.&sh=bt0Sgdn6lg",
-      "tags": "algorithms",
-      "id": 6,
-      "coverURL": "/uploads/algorithms-1664832151958.jpg",
-      "rating": null
-    },
-    {
-      "title": "Dfg",
+      "title": "Со",
       "rating": null,
       "author": "",
-      "pages": "",
+      "pages": null,
       "description": "",
-      "tags": "попо,попопо",
+      "tags": [
+        "gjgj",
+        "gjgjg"
+      ],
       "coverURL": null,
-      "type": "book",
-      "id": 7
+      "id": 1
+    },
+    {
+      "title": "Dfgddfdf",
+      "rating": null,
+      "author": "",
+      "pages": null,
+      "description": "",
+      "tags": [],
+      "coverURL": "gory-1666209555666.png",
+      "id": 2
+    },
+    {
+      "title": "Совре",
+      "rating": null,
+      "author": "",
+      "pages": null,
+      "description": "",
+      "tags": [
+        "gjgj"
+      ],
+      "coverURL": "javascript_fast-1666203761873.jpg",
+      "id": 3
+    },
+    {
+      "title": "С",
+      "rating": null,
+      "author": "",
+      "pages": null,
+      "description": "",
+      "tags": [
+        "dfdf",
+        "dgdg"
+      ],
+      "coverURL": "finding-unloaded-record-step1-diagram-1666204028888.png",
+      "id": 4
     }
   ],
   "speakers": [
     {
-      "id": 1,
-      "type": "speaker",
-      "photo": "images/speaker1.png",
-      "surname": "Дробот",
-      "name": "Карина",
-      "fName": "Рустамовна"
-    },
-    {
-      "id": 2,
-      "type": "speaker",
-      "photo": null,
-      "surname": "К",
-      "name": "Ярослава",
-      "fName": "Андреевна"
-    },
-    {
-      "id": 3,
-      "type": "speaker",
-      "photo": "",
-      "surname": "Акитов",
-      "name": "Артур",
-      "fName": "Матвеевич"
-    },
-    {
-      "id": 4,
-      "type": "speaker",
-      "photo": "",
-      "surname": "Кинкот",
-      "name": "Дарья",
-      "fName": "Максимовна"
-    },
-    {
-      "surname": "Дробот",
-      "name": "Карина",
-      "fName": "А",
-      "id": 5
-    },
-    {
       "photo": null,
       "surname": "Дробот",
       "name": "Карина",
-      "fName": "А",
-      "type": "speaker",
-      "id": 6
+      "fName": "Рустамовна",
+      "id": 1
     }
-  ]
+  ],
+  "meetings": [
+    {
+      "date": "01.05.2022",
+      "id": 1
+    },
+    {
+      "date": null,
+      "id": 2
+    }
+  ],
+  "reports": []
 }

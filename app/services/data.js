@@ -57,44 +57,17 @@ export default Service.extend({
         return fetch (`${ENV.backendURL}/speakers/${id}`, {method: 'DELETE'});
     },
 
-    async createBook(book, uploadData) {
+    async saveCover(newBook, uploadData) {
         return new Promise(async (resolve, reject) => {
           try {
-            const savedBookPromise = await fetch(`${ENV.backendURL}/books`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(book)
-            });
-    
-            const savedBook = await savedBookPromise.json();
-    
-            if (!uploadData) {
-              resolve();
-            }
-    
+          
             uploadData.url = `${ENV.fileUploadURL}`;
             // uploadData.headers = getOwner(this).lookup('adapter:application').get('headers');
             uploadData.submit().done(async (result/*, textStatus, jqXhr*/) => {
-              try {
-                const dataToUpload = {
-                  entityName: 'books',
-                  id: savedBook.id,
-                  fileName: result.filename
-                };
-    
-                await fetch(`${ENV.backendURL}/saveURL`, {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify(dataToUpload)
-                });
-    
+              try {    
                 // eslint-disable-next-line no-console
                 console.log('Ok');
-                resolve();
+                resolve(result.filename);
               }
               catch (e) {
                 reject(e);

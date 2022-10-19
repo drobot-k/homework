@@ -12,6 +12,7 @@ export default Controller.extend({
     actions: {
         async deleteBook(book) {          
             await book.destroyRecord();
+            this.get('store').unloadRecord(book);
         },
 
         search(s) {
