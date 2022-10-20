@@ -6,7 +6,7 @@ export default Controller.extend({
             let newMeeting = this.get('store').createRecord('meeting', meeting);
             await newMeeting.save();
 
-            this.transitionToRoute('speakers.index');
+            this.transitionToRoute('meetings.edit-meeting');
         },
     },
 });

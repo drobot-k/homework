@@ -20,8 +20,8 @@ Router.map(function() {
   
   this.route('meetings', function() {
     this.route('create-meeting');
-    this.route('edit-meeting');
-    this.route('edit-report');
+    this.route('edit-meeting', { path: '/edit-meeting/:id'});
+    this.route('edit-report', { path: '/edit-report/:id'});
     this.route('create-report');
   });
 });
