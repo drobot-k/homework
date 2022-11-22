@@ -77,14 +77,7 @@ export default Controller.extend({
             this.set('speaker', '');
             this.set('date', '');
             this.set('page', 1);
-        },
-
-        filter(s) {
-            s.preventDefault(); 
-
-            this.get('store').get('speaker', 'date', 'book');
-            this.send('refreshModel');
-        },
+        }
     },
 
 });

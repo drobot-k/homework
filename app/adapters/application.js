@@ -20,7 +20,7 @@ export default DS.JSONAPIAdapter.extend({
         if (modelName === 'meeting' && (requestType === 'findRecord' || requestType === 'findAll' || requestType === 'query') ) {
           url += '?_embed=reports';
         }
-        if (modelName === 'report' && requestType === 'findRecord') {
+        if (modelName === 'report' && (requestType === 'findRecord' || requestType === 'findAll' || requestType === 'query') ) {
           url += '?_expand=speaker&_expand=book';
         }
         return url;
