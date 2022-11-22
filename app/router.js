@@ -22,7 +22,7 @@ Router.map(function() {
     this.route('create-meeting');
     this.route('edit-meeting', { path: '/edit-meeting/:id'});
     this.route('edit-report', { path: '/edit-report/:id'});
-    this.route('create-report');
+    this.route('create-report', { path: '/edit-meeting/:id/create-report'});
   });
 });
 

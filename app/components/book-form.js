@@ -33,7 +33,7 @@ export default Component.extend({
     
         change() {
             set(this, 'tags', ['1', '2', '3']);
-        },
+        }
     },
 
     reset() {

@@ -1,16 +1,18 @@
+/* eslint-disable no-console */
 import Component from '@ember/component';
 
 export default Component.extend({
-  savedMeeting: false,
     actions: {
         submitForm(e) {
           e.preventDefault();
     
           this.onsubmit({
-            id: this.get('idMeeting'),
             date: this.get('date'),
           });
-        }
+        },
+        onChangeDate(date) {
+          this.set('date', date);
+        },
       },
     
       didReceiveAttrs() {
@@ -19,8 +21,7 @@ export default Component.extend({
         // this.set('lastName', this.get('author.lastName'));
     
         this.setProperties({
-          idMeeting: this.get('meeting.id') ? this.get('meeting.id') : undefined,
-          date: this.get('meeting.date'),
+          date: this.get('meetingDate'),
         });
       },
 });

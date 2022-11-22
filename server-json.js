@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 /* eslint-disable no-undef */
 const jsonServer = require('json-server')
 const path = require('path');
 const multer = require('multer');
 const fs = require("fs");
+const moment = require('moment');
 
 const pathToSave = 'public/uploads';
 const urlBase = '/uploads/';
@@ -103,6 +105,70 @@ function responseInterceptor(req, res, next) {
 }
 
 server.use(responseInterceptor);
+
+// server.use((request, response, next) => {
+//   const speaker = Number(request.query.speaker);
+//   const book = Number(request.query.book);
+//   const date = moment(request.query.date).toDate();
+//   // console.log(speaker, '\n', book, '\n', date)
+
+//   if (request.method === 'GET' && request.path === '?_expand=speaker&_expand=book' && !Number.isNaN(speaker)) {
+//     const speakers = router.db.get('speakers').filter((b) => b.speaker === speaker);
+
+//     response.json(speakers)}
+
+//   if (request.method === 'GET' && request.path === '?_expand=speaker&_expand=book' && !Number.isNaN(book)) {
+//     const books = router.db.get('books').filter((b) => b.book === book);
+
+//     response.json(books)}
+
+//   if (request.method === 'GET' && request.path === '/meetings' && !Number.isNaN(date)) {
+//     const dates = router.db.get('meetings').filter((b) => b.date === date);
+
+//     response.json(dates)
+
+//   } else {
+//     next();
+//   }
+// });
+
+server.use((request, response, next) => {
+  const speaker = Number(request.query.speaker);
+  const book = Number(request.query.book);
+  const date = moment(request.query.date).toDate();
+  // console.log(speaker, '\n', book, '\n', date, request.query.date)
+  if (request.method === 'GET' && request.path === '/meetings' && !Number.isNaN(book) || !Number.isNaN(speaker) || request.query.date!=undefined) {
+    const meetingstemp = []
+    let reports = []
+    if (!Number.isNaN(book) && !Number.isNaN(speaker)) {
+      reports = router.db.get('reports').filter((r) => r.bookId === book && r.speakerId === speaker).value()
+    } else if(!Number.isNaN(book) || !Number.isNaN(speaker)) {
+      reports = router.db.get('reports').filter((r) => r.bookId === book || r.speakerId === speaker).value()
+    }
+    else{
+      reports = router.db.get('reports');
+      // console.log(reports)
+    }
+
+    const meetings = router.db.get('meetings').filter((m) => {
+          if(request.query.date!=undefined) {
+            // var ourdate = new Date(String(m.Date));
+            // ourdate.setDate(ourdate.getDate() + 1);
+            // var datemeet = new Date(request.query.date + "T19:00:00.000Z");
+            // return String(ourdate) == String(datemeet);
+            return moment(date).isSame(m.date);
+          }
+          return true;
+        });
+    const meetings2 = meetings.filter((m) => {
+      const temp = reports.find((report) =>  m.id === report.meetingId);
+      return temp !=undefined;
+    }).value();
+    response.json(meetings2);
+  } else {
+    next();
+  }
+});
 
 // Use default router
 server.use(router)

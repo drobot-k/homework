@@ -60,37 +60,29 @@
   ],
   "meetings": [
     {
-      "date": "2022-10-19T19:00:00.000Z",
+      "date": "2022-11-23T19:00:00.000Z",
       "id": 1
     },
     {
-      "date": null,
+      "date": "2022-11-11T19:00:00.000Z",
       "id": 2
     },
     {
-      "date": null,
+      "date": "2022-11-19T19:00:00.000Z",
       "id": 3
-    },
-    {
-      "date": "2022-10-19T19:00:00.000Z",
-      "id": 4
-    },
-    {
-      "date": null,
-      "id": 5
-    },
-    {
-      "date": "2022-10-20T19:00:00.000Z",
-      "id": 6
-    },
-    {
-      "date": "2022-10-20T19:00:00.000Z",
-      "id": 7
-    },
-    {
-      "date": "2022-10-20T19:00:00.000Z",
-      "id": 8
     }
   ],
-  "reports": []
+  "reports": [
+    {
+      "reportDate": "2022-11-12",
+      "meetingId": 2,
+      "bookId": null,
+      "speakerId": 1,
+      "bookRating": null,
+      "presentationURL": null,
+      "videoURL": null,
+      "review": null,
+      "id": 1
+    }
+  ]
 }
