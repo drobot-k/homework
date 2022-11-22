@@ -31,6 +31,16 @@ module.exports = function(defaults) {
   app.import('vendor/jquery.blobajaxtransport.js');
   app.import('vendor/jquery.flexberry.downloadFile.js');
 
+  app.import('vendor/bootstrap-file.js');
+  app.import('vendor/bootstrap-datepicker.min.js');
+  app.import('vendor/bootstrap-datepicker.ru.min.js');
+  app.import('vendor/bootstrap-select.min.js');
+  app.import('vendor/bootstrap-datepicker.css');
+  app.import('vendor/bootstrap-select.min.css');
+
+
+
+
   const jqueryFiles = funnel ('node_modules/blueimp-file-upload/js', {
     files: ['**/*.js'],
     destDir: 'js'

@@ -1,10 +1,8 @@
 import Component from '@ember/component';
 import { get, set } from '@ember/object';
-import { inject as service } from '@ember/service';
 
 export default Component.extend({
     actions: {
-        dataService: service('data'),
         submitForm(e) {
             e.preventDefault();
 
@@ -35,7 +33,7 @@ export default Component.extend({
     
         change() {
             set(this, 'tags', ['1', '2', '3']);
-        },
+        }
     },
 
     reset() {
@@ -65,6 +63,7 @@ export default Component.extend({
             pages: this.get('book.pages'),
             description: this.get('book.description'),
             tags: this.get('book.tags'),
+            coverURL: this.get('book.coverURL'),
         });
     },
 });

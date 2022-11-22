@@ -1,6 +1,10 @@
 <div class="col mb-4">
     <div class="card">
-            <img src={{if coverURL coverURL 'images/book.jpg'}} class="card-img-top" alt="Обложка книги">
+        {{#if coverURL}}
+            <img src='/uploads/{{coverURL}}' class="card-img-top" alt="Обложка книги">
+        {{else}}
+            <img src='images/book.jpg' class="card-img-top" alt="Обложка книги">
+        {{/if}}
         <div class="card-header">
             <h5 class="card-title">{{title}}</h5>
         </div>

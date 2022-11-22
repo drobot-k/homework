@@ -17,6 +17,13 @@ Router.map(function() {
   });
   this.route('404', { path: '*path'});
   this.route('error', { path: '/:error'});
+  
+  this.route('meetings', function() {
+    this.route('create-meeting');
+    this.route('edit-meeting', { path: '/edit-meeting/:id'});
+    this.route('edit-report', { path: '/edit-report/:id'});
+    this.route('create-report', { path: '/edit-meeting/:id/create-report'});
+  });
 });
 
 export default Router;
