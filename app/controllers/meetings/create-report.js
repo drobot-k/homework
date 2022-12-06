@@ -9,5 +9,9 @@ export default Controller.extend({
 
             this.transitionToRoute('meetings.edit-meeting', newReport.get('meetingId'));
         },
+
+        async clear(report) {
+            await this.get('clear')(report);
+        },
     },
 });

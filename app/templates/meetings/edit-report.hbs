@@ -1,6 +1,16 @@
 <div class="container h-100">
     <div class="htop">
         <h2 class="text-center">Редактирование доклада:</h2>
-        {{report-form}}
+        {{report-form onsubmit=(action "saveReport") 
+            meetingDate=model.meeting.date
+            bookRating=model.bookRating
+            presentationURL=model.presentationURL
+            videoURL=model.videoURL
+            book=model.book
+            speaker=model.speaker
+            review=model.review
+            report=model.meetings.reports
+            clear=(action "clear")
+        }}
     </div>
 </div>

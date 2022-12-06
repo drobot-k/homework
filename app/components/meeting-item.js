@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 export default Component.extend({
     moment: service(),
     actions: {
+        
         async deleteMeeting(meeting) {
             await this.get('deleteMeeting')(meeting);
 

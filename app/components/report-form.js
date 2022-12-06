@@ -25,7 +25,12 @@ export default Component.extend({
 
         searchSpeaker(query) {
           return this.get('store').query('speaker', { q: query })
-        }
+        },
+
+        async clear(report) {          
+          await report.destroyRecord();
+          this.get('store').unloadRecord(report);
+      },
       },
     
       didReceiveAttrs() {

@@ -8,4 +8,6 @@ export default DS.Model.extend({
     description: DS.attr('string'),
     tags: DS.attr(),
     coverURL: DS.attr('string'),
+
+    user: DS.belongsTo('user')
 });

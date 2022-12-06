@@ -7,6 +7,8 @@ export default DS.Model.extend({
     name: DS.attr('string'),
     fName: DS.attr('string'),
 
+    user: DS.belongsTo('user'),
+
     fullName: computed("surname", "name", "fName", function() {
         return `${this.surname} ${this.name} ${this.fName}`;
     }),

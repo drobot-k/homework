@@ -2,8 +2,9 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service'
 // import { Promise } from 'rsvp';
 import { later } from '@ember/runloop'
+// import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Route.extend({
+export default Route.extend( {
     dataService: service ('data'),
     queryParams: {
         searchP: true,

@@ -60,6 +60,11 @@ export default Controller.extend({
             this.get('store').unloadRecord(meeting);
         },
 
+        async deleteReport(report) {          
+            await report.destroyRecord();
+            this.get('store').unloadRecord(report);
+        },
+
         onChangeDate(date) {
             this.set('date', date);
         },

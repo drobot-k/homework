@@ -37,13 +37,29 @@
                 <a class="nav-link text-primary" href="#">Запланировать</a>
             </li>
         </ul>
+        {{#if session.isAuthenticated}}
+            <div class="current-user">
+                Привет, <strong>{{this.session.data.authenticated.tokenData.username}}</strong>
+                {{!-- Hello, <strong>{{this.session.data.authenticated.tokenData.username}}</strong> --}}
+            </div>
+        {{/if}}
         <ul class="nav navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link text-info" href="register.html">Регистрация</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="login.html">Войти</a>
-            </li>
+            {{#if session.isAuthenticated}}
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick={{action "logout"}}>Выйти</a>
+                </li>
+            {{else}}
+                {{#link-to "register"}}
+                    <li class="nav-item">
+                        <a class="nav-link text-info" href="register.html">Регистрация</a>
+                    </li>
+                {{/link-to}}
+                {{#link-to "login"}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Войти</a>
+                    </li>
+                {{/link-to}}
+            {{/if}}
         </ul>
     </div>
 </nav>

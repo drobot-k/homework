@@ -41,28 +41,27 @@ export default Service.extend({
     //     return fetch (`${ENV.backendURL}/speakers`).then((response) => response.json());
     // },
 
-    getBookId(id) {
-        return fetch (`${ENV.backendURL}/books/${id}`).then((response) => response.json());
-    },
+    // getBookId(id) {
+    //     return fetch (`${ENV.backendURL}/books/${id}`).then((response) => response.json());
+    // },
 
-    getSpeakerId(id) {
-        return fetch (`${ENV.backendURL}/speakers/${id}`).then((response) => response.json());
-    },
+    // getSpeakerId(id) {
+    //     return fetch (`${ENV.backendURL}/speakers/${id}`).then((response) => response.json());
+    // },
 
-    deleteBook(book) {
-        return fetch (`${ENV.backendURL}/books/${book}`, {method: 'DELETE'});
-    },
+    // deleteBook(book) {
+    //     return fetch (`${ENV.backendURL}/books/${book}`, {method: 'DELETE'});
+    // },
 
-    deleteSpeaker(id) {
-        return fetch (`${ENV.backendURL}/speakers/${id}`, {method: 'DELETE'});
-    },
+    // deleteSpeaker(id) {
+    //     return fetch (`${ENV.backendURL}/speakers/${id}`, {method: 'DELETE'});
+    // },
 
     async saveCover(newBook, uploadData) {
         return new Promise(async (resolve, reject) => {
           try {
           
             uploadData.url = `${ENV.fileUploadURL}`;
-            // uploadData.headers = getOwner(this).lookup('adapter:application').get('headers');
             uploadData.submit().done(async (result/*, textStatus, jqXhr*/) => {
               try {    
                 // eslint-disable-next-line no-console
@@ -82,28 +81,28 @@ export default Service.extend({
         });
     },
 
-    createSpeaker(id) {
-        return fetch (`${ENV.backendURL}/speakers`, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(id),
-        });
-    },
+    // createSpeaker(id) {
+    //     return fetch (`${ENV.backendURL}/speakers`, {
+    //         method: 'POST',
+    //         headers: {'Content-Type': 'application/json'},
+    //         body: JSON.stringify(id),
+    //     });
+    // },
 
-    updateBook(book) {
-        return fetch (`${ENV.backendURL}/books/${book.id}`, {
-            method: 'PATCH',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(book),
-        });
-    },
+    // updateBook(book) {
+    //     return fetch (`${ENV.backendURL}/books/${book.id}`, {
+    //         method: 'PATCH',
+    //         headers: {'Content-Type': 'application/json'},
+    //         body: JSON.stringify(book),
+    //     });
+    // },
 
-    updateSpeaker(speaker) {
-        return fetch (`${ENV.backendURL}/speakers/${speaker.id}`, {
-            method: 'PATCH',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(speaker),
-        });
-    },
+    // updateSpeaker(speaker) {
+    //     return fetch (`${ENV.backendURL}/speakers/${speaker.id}`, {
+    //         method: 'PATCH',
+    //         headers: {'Content-Type': 'application/json'},
+    //         body: JSON.stringify(speaker),
+    //     });
+    // },
 });
 

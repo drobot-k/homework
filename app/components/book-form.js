@@ -7,7 +7,7 @@ export default Component.extend({
             e.preventDefault();
 
             // this.onsubmit(this.get('book')); нужно передавать не объект book, а вручную созданный объект из копии данных
-            set(this, 'isUploadingFile', true);
+            // set(this, 'isUploadingFile', true);
             const uploadData = get(this, 'uploadData');
             this.onsubmit({
                 id: this.get('idBook'),
@@ -17,7 +17,7 @@ export default Component.extend({
                 description: this.get('description'),
                 tags: this.get('tags'),
             }, uploadData);
-            set(this, 'isUploadingFile', false);
+            // set(this, 'isUploadingFile', false);
         },
 
         changeTags(newTags) {

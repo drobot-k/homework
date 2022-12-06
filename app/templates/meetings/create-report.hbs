@@ -1,10 +1,17 @@
 <div class="container h-100">
     <div class="htop">
         <h2 class="text-center">Создание доклада:</h2>
-        {{report-form onsubmit=(action "saveReport") 
+        {{!-- {{report-form onsubmit=(action "saveReport") 
             meetingDate=model.meeting.date
             books=model.books
             speakers=model.speakers
+            report=model.meetings.reports
+            clear=(action "clear")
+        }} --}}
+        {{report-form onsubmit=(action "saveReport") 
+            meetingDate=model.meeting.date
+            report=model.meetings.reports
+            clear=(action "clear")
         }}
     </div>
 </div>
