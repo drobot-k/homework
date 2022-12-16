@@ -1,8 +1,15 @@
+/* eslint-disable no-unused-labels */
 /* eslint-disable no-console */
 import Service from '@ember/service';
 import ENV from 'homework/config/environment';
+import { inject as service } from '@ember/service';
+// import { computed } from '@ember/object';
+import $ from 'jquery';
 
 export default Service.extend({
+    session: service(),
+    host: ENV.backendURL,
+
     getBooks(searchP, searchT) {
         let queryParams = '';
         if (searchP, searchT) {
@@ -62,6 +69,24 @@ export default Service.extend({
           try {
           
             uploadData.url = `${ENV.fileUploadURL}`;
+
+            // headers: computed(function() {
+            //   let resultHeaders = {
+            //     'Content-Type': 'application/json'
+            //   };
+        
+            //   if (this.get('session.isAuthenticated')) {
+            //     resultHeaders['Authorization'] = `Bearer ${this.session.data.authenticated.token}`;
+            //   }
+        
+            //   return resultHeaders;
+            // }).volatile(),
+
+            $.ajax({
+              // url: 'application/json',
+              headers: { 'Authorization': `Bearer ${this.session.data.authenticated.token}` },
+            });
+
             uploadData.submit().done(async (result/*, textStatus, jqXhr*/) => {
               try {    
                 // eslint-disable-next-line no-console
