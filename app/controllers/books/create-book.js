@@ -18,8 +18,17 @@ export default Controller.extend({
     actions: {
         async saveBook(book, uploadData) {
             let newBook = this.get('store').createRecord('book', book);
-            const fileName = await this.get("dataService").saveCover(newBook, uploadData);
-            newBook.set("coverURL", fileName);
+
+            if (uploadData) {
+                const fileName = await this.get("dataService").saveCover(newBook, uploadData);
+                newBook.set('coverURL', fileName);
+            }
+
+            else {
+                newBook.set('coverURL', null);
+            }
+            
+            
             await newBook.save();
 
             this.transitionToRoute('books.index');

@@ -21,7 +21,7 @@ export default Route.extend( {
             later(async () => {
                 try {
                     // eslint-disable-next-line no-constant-condition
-                    let books = {searchP, searchT} ? await this.get("dataService").getBooks(searchP, searchT) : await this.get('store').findAll('book');  
+                    let books = await this.get("dataService").getBooks(searchP, searchT);  
                     resolve(books);
                 }
                 catch (e) {

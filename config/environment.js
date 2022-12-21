@@ -36,6 +36,8 @@ module.exports = function(environment) {
 
   ENV.fileUploadURL = ENV.backendURL + '/FileUpload';
 
+  // ENV.url = ENV.backendURL + '/images/book.jpg';
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;

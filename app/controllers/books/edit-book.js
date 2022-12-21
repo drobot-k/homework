@@ -13,8 +13,8 @@ export default Controller.extend({
             bookModel.set('tags', book.tags);
 
             if (uploadData) {
-                let fileName = await this.get("dataService").saveCover(bookModel, uploadData);
-                bookModel.set("coverURL", fileName);
+                let fileName = await this.get('dataService').saveCover(bookModel, uploadData);
+                bookModel.set('coverURL', fileName);
             }
 
             else {
