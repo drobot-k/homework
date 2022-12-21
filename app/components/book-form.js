@@ -16,6 +16,8 @@ export default Component.extend({
                 pages: this.get('pages'),
                 description: this.get('description'),
                 tags: this.get('tags'),
+                // coverURL: this.get('coverURL'),
+                
             }, uploadData);
             // set(this, 'isUploadingFile', false);
         },

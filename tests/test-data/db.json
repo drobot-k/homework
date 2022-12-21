@@ -11,14 +11,24 @@
       "id": 1
     },
     {
-      "title": "Современный JavaScript",
+      "title": "Dfg",
+      "rating": null,
+      "author": "",
+      "pages": null,
+      "description": "",
+      "tags": [],
+      "coverURL": "ember-core-concepts (1)-1671617037189.png",
+      "id": 2
+    },
+    {
+      "title": "С",
       "rating": null,
       "author": "",
       "pages": null,
       "description": "",
       "tags": [],
       "coverURL": null,
-      "id": 2
+      "id": 3
     }
   ],
   "speakers": [

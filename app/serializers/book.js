@@ -3,7 +3,7 @@ import ApplicationSerializer from './application';
 
 export default ApplicationSerializer.extend({
     normalize(model, hash) {
-        hash = this._super(...arguments);
+        return this._super(...arguments);
         // let hashCopy = Object.assign({}, hash);
         // hashCopy.attributes = {};
         // hashCopy.attributes.title = hashCopy.title;
@@ -24,7 +24,7 @@ export default ApplicationSerializer.extend({
         //   data: hashCopy
         // };
     
-        return hash;
+        // return hash;
       },
       
     // serialize(snapshot, options) {

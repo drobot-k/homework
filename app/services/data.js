@@ -4,31 +4,36 @@ import Service from '@ember/service';
 import ENV from 'homework/config/environment';
 import { inject as service } from '@ember/service';
 // import { computed } from '@ember/object';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 export default Service.extend({
     session: service(),
+    store: service(),
     host: ENV.backendURL,
 
     getBooks(searchP, searchT) {
-        let queryParams = '';
+        // let queryParams = '';
         if (searchP, searchT) {
-            queryParams=`?q=${searchP}&tags_like=${searchT}`;
-            return fetch (`${ENV.backendURL}/books${queryParams}`).then((response) => response.json());
+            // queryParams=`?q=${searchP}&tags_like=${searchT}`;
+            // return fetch (`${ENV.backendURL}/books${queryParams}`).then((response) => response.json());
+            return this.get('store').query('book', {q: searchP, tags_like: searchT});
         }
 
         else if (searchP) {
-            queryParams=`?q=${searchP}`;
-            return fetch (`${ENV.backendURL}/books${queryParams}`).then((response) => response.json());
+            // queryParams=`?q=${searchP}`;
+            // return fetch (`${ENV.backendURL}/books${queryParams}`).then((response) => response.json());
+            return this.get('store').query('book', {q: searchP});
         }
 
         else if (searchT) {
-            queryParams=`?tags_like=${searchT}`;
-            return fetch (`${ENV.backendURL}/books${queryParams}`).then((response) => response.json());
+            // queryParams=`?tags_like=${searchT}`;
+            // return fetch (`${ENV.backendURL}/books${queryParams}`).then((response) => response.json());
+            return this.get('store').query('book', {tags_like: searchT});
         }
 
         else {
-            return fetch (`${ENV.backendURL}/books`).then((response) => response.json());
+            // return fetch (`${ENV.backendURL}/books`).then((response) => response.json());
+            return this.get('store').findAll('book');
         }
     },
 
@@ -82,10 +87,12 @@ export default Service.extend({
             //   return resultHeaders;
             // }).volatile(),
 
-            $.ajax({
-              // url: 'application/json',
-              headers: { 'Authorization': `Bearer ${this.session.data.authenticated.token}` },
-            });
+            // $.ajax({
+            //   // url: 'application/json',
+            //   headers: { 'Authorization': `Bearer ${this.session.data.authenticated.token}` },
+            // });
+
+            uploadData.headers = { 'Authorization': `Bearer ${this.session.data.authenticated.token}` };
 
             uploadData.submit().done(async (result/*, textStatus, jqXhr*/) => {
               try {    

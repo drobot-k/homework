@@ -58,6 +58,7 @@ export default Component.extend({
 
   actions: {
     removeFile() {
+      set(this, 'cover', null);
       set(this, 'uploadData', null);
     }
   }
