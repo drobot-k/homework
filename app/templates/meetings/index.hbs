@@ -1,11 +1,11 @@
 <div class="container h-100">
     <div class="htop">
-        <h2 class="text-center">Встречи клуба</h2>
+        <h2 class="text-center">{{t "menu.meetings"}}</h2>
         <div class="form-row navbar-panel justify-content-between align-items-end">
             {{#if (can "edit application")}}
                 <div class="col-md-1">
                     {{#link-to "meetings.create-meeting"}}
-                    <button class="btn btn-outline-primary my-2" type="button" title="Добавить встречу">
+                    <button class="btn btn-outline-primary my-2" type="button" title={{t "meetingsIndex.addMeeting"}}>
                         <svg viewBox="0 0 16 16" class="bi bi-plus card-button" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                         </svg>
@@ -14,9 +14,9 @@
                 </div>
             {{/if}}
             <div class="col-md-3 align-top">
-                <h5>Спикер</h5>
+                <h5>{{t "meetingsIndex.speaker"}}</h5>
                 <div class="form-group py-2 my-0">
-                    {{#power-select class="selectpicker form-control dropdown-filter-control" data-live-search="true" data-size="5" title="Спикер..." 
+                    {{#power-select class="selectpicker form-control dropdown-filter-control" data-live-search="true" data-size="5" title=(t "meetingsIndex.speakerWithDots") 
                     options=model.speakers
                     selected=selectedSpeaker
                     onchange=(action "changeSpeaker")
@@ -27,9 +27,9 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <h5>Книга</h5>
+                <h5>{{t "meetingsIndex.book"}}</h5>
                 <div class="form-group py-2 my-0">
-                    {{#power-select class="selectpicker form-control dropdown-filter-control" data-live-search="true" data-size="5" title="Книга..."
+                    {{#power-select class="selectpicker form-control dropdown-filter-control" data-live-search="true" data-size="5" title=(t "meetingsIndex.bookWithDots")
                     options=model.books
                     selected=selectedBook
                     onchange=(action "changeBook")
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <h5>Дата встречи</h5>
+                <h5>{{t "meetingsIndex.meetingDate"}}</h5>
                 <div class="form-group py-2 my-0">
                     <div class="datepicker date input-group p-0 w-100">
                         {{!-- {{input-date type="text" placeholder="Дата..." class="form-control" id="meetingDateFilter" currentDate=date changeDate=(action "onChangeDate")}} --}}
