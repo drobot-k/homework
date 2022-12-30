@@ -31,6 +31,10 @@ const Validations = buildValidations({
   review: [
     validator('ds-error'),
     validator('presence', true),
+    validator('length', {
+      min: 2,
+      max: 200
+  }),
   ],
 });
 

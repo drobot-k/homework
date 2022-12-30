@@ -7,14 +7,26 @@ const Validations = buildValidations({
     surname: [
         validator('ds-error'),
         validator('presence', true),
+        validator('length', {
+            min: 2,
+            max: 40
+        }),
     ],
     name: [
         validator('ds-error'),
         validator('presence', true),
+        validator('length', {
+            min: 2,
+            max: 40
+        }),
     ],
     fName: [
         validator('ds-error'),
         validator('presence', true),
+        validator('length', {
+            min: 2,
+            max: 40
+        }),
     ],
   });
 

@@ -23,6 +23,10 @@ const Validations = buildValidations({
     author: [
         validator('ds-error'),
         validator('presence', true),
+        validator('length', {
+            min: 2,
+            max: 40
+        }),
     ],
     pages: [
         validator('ds-error'),
