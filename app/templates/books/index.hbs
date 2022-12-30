@@ -1,11 +1,11 @@
 <div class="container h-100">
     <div class="htop">
-      <h2 class="text-center">Книги</h2>
+      <h2 class="text-center">{{t "menu.books"}}</h2>
       <div class="form-row navbar-panel justify-content-between">
         <div class="col-md-auto">
           {{#if (can "edit application")}}
             {{#link-to "books.create-book"}}
-            <button class="btn btn-outline-primary my-2" type="button" title="Добавить книгу">
+            <button class="btn btn-outline-primary my-2" type="button" title={{t "booksIndex.addBook"}}>
               <svg viewBox="0 0 16 16" class="bi bi-plus card-button" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
               </svg>
@@ -15,14 +15,14 @@
         </div>
         <div class="col-md-auto">
           <form class="form-inline" onsubmit={{action "search"}}>
-            {{input class="form-control mr-2 search-long" type="search" placeholder="Найти по полям" aria-label="Найти по полям" value=searchP}}
-            <button class="btn btn-primary my-2" type="submit">Найти</button>
+            {{input class="form-control mr-2 search-long" type="search" placeholder=(t "booksIndex.searchByField") aria-label="Найти по полям" value=searchP}}
+            <button class="btn btn-primary my-2" type="submit">{{t "booksIndex.find"}}</button>
           </form>
         </div>
         <div class="col-md-auto">
           <form class="form-inline" onsubmit={{action "search"}}>
-            {{input class="form-control mr-2" type="search" placeholder="Поиск по тегам" aria-label="Найти по тегам" value=searchT}}
-            <button class="btn btn-primary my-2" type="submit">Поиск</button>
+            {{input class="form-control mr-2" type="search" placeholder=(t "booksIndex.searchByTags") aria-label="Найти по тегам" value=searchT}}
+            <button class="btn btn-primary my-2" type="submit">{{t "booksIndex.search"}}</button>
           </form>
         </div>
       </div>

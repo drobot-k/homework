@@ -1,27 +1,27 @@
 <div class="col mb-4">
     <div class="card">
         {{#if coverURL}}
-            <img src='/uploads/{{coverURL}}' class="card-img-top" alt="Обложка книги">
+            <img src='/uploads/{{coverURL}}' class="card-img-top" alt={{t "bookItem.cover"}}>
         {{else}}
-            <img src='images/book.jpg' class="card-img-top" alt="Обложка книги">
+            <img src='images/book.jpg' class="card-img-top" alt={{t "bookItem.cover"}}>
         {{/if}}
         <div class="card-header">
             <h5 class="card-title">{{title}}</h5>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                <div><strong>Автор</strong>: {{author}}</div>
-                <div><strong>Количество страниц</strong>: {{numberOfPages}}</div>
-                <div><strong>Теги</strong>: {{#each tags as |tag|}}<a href="?searchT={{tag}}" class="tag-link"><span class="small">#{{tag}}</span></a>{{/each}}</div>
+                <div><strong>{{t "bookItem.author"}}</strong>: {{author}}</div>
+                <div><strong>{{t "bookItem.pages"}}</strong>: {{numberOfPages}}</div>
+                <div><strong>{{t "bookItem.tags"}}</strong>: {{#each tags as |tag|}}<a href="?searchT={{tag}}" class="tag-link"><span class="small">#{{tag}}</span></a>{{/each}}</div>
             </li>
             <li class="list-group-item">
                 <div class="row">
                     <div class="col-md-auto">
-                    Рейтинг:
+                    {{t "bookItem.rating"}}:
                     </div>
                     <div class="col">
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: {{if rating rating '100'}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{if rating rating 'пока никто не оценил'}} %</div>
+                            <div class="progress-bar" role="progressbar" style="width: {{if rating rating '100'}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{if rating rating (t "reportItem.ratingNo")}} %</div>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
         <div class="card-footer">
             <div class="row">
                 <div class="col">
-                    <a href={{description}}  class="card-link line-offset">Описание</a>
+                    <a href={{description}}  class="card-link line-offset">{{t "bookItem.description"}}</a>
                 </div>
                 {{#if (can "edit application")}}
                     <div class="col text-right">

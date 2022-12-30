@@ -1,10 +1,18 @@
 <form class="edit-form" onsubmit={{action "submitForm"}}>
     <div class="border border-dark rounded p-4 mb-4">
-        <h4>Дата встречи</h4>
+        <h4>{{t "meetingsIndex.meetingDate"}}</h4>
         {{#if savedMeeting}}
         <div class="row h-100 justify-content-between mb-4">
             <div class="col-md-auto">
-                {{input-date chooseNewDate=false currentDate=date changeDate=(action "onChangeDate")}}
+                {{input-date chooseNewDate=false currentDate=date changeDate=(action "onChangeDate") value=validDate}}
+
+                {{#if error}}
+                    {{#if (v-get this 'validDate' 'isInvalid')}}
+                        <span class="error-message">
+                            {{v-get this 'validDate' 'message'}}
+                        </span>
+                    {{/if}}
+                {{/if}}
                 {{!-- <div class="datepicker datepicker-meeting date input-group p-0">
                     <input type="text" placeholder="Дата..." class="form-control" id="meetingDate" value="{{meetingDate}}" disabled="disabled">
                     <div class="input-group-append">
@@ -20,7 +28,7 @@
         </div>
             <div class="row h-100 justify-content-between">
                 <div class="col-md-auto">
-                    <h4>Список докладов</h4>
+                    <h4>{{t "meetingItem.listOfReports"}}</h4>
                 </div>
                 <div class="col-md-auto">
                     {{#link-to "meetings.create-report" meetingId class="btn btn-edit"}}
@@ -49,7 +57,15 @@
         {{else}}
             <div class="row h-100 justify-content-between mb-4">
                 <div class="col-md-auto">
-                    {{input-date chooseNewDate=true currentDate="Выберите дату" changeDate=(action "onChangeDate")}}
+                    {{input-date chooseNewDate=true currentDate=(t "meetingForm.chooseDate") changeDate=(action "onChangeDate") value=validDate}}
+
+                    {{#if error}}
+                        {{#if (v-get this 'validDate' 'isInvalid')}}
+                            <span class="error-message">
+                                {{v-get this 'validDate' 'message'}}
+                            </span>
+                        {{/if}}
+                    {{/if}}
                     {{!-- <div class="datepicker datepicker-meeting date input-group p-0">
                         <div class="input-group-append">
                             <span class="input-group-text px-4">
@@ -64,17 +80,17 @@
             </div>
             <div class="row h-100 justify-content-between">
                 <div class="col-md-auto">
-                    <h4>Список докладов</h4>
+                    <h4>{{t "meetingItem.listOfReports"}}</h4>
                 </div>
-                <p>Для добавления докладов сначала введите дату встречи и сохраните ее</p>
+                <p>{{t "meetingForm.saveMeeting"}}</p>
             </div>
         {{/if}}
     </div>
     <div class="form-group row">
         <div class="col-12 text-right">
-            <button type="submit" class="btn btn-primary btn-lg">Сохранить</button>
+            <button type="submit" class="btn btn-primary btn-lg">{{t "meetingForm.save"}}</button>
             {{#link-to "meetings.index"}}
-                <button type="submit" class="btn btn-outline-secondary btn-lg">Отмена</button>
+                <button type="submit" class="btn btn-outline-secondary btn-lg">{{t "meetingForm.cancel"}}</button>
             {{/link-to}}
         </div>
     </div>

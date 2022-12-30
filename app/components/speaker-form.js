@@ -1,16 +1,44 @@
+/* eslint-disable no-unused-vars */
 import Component from '@ember/component';
+import { get, set, computed } from '@ember/object';
+import { validator, buildValidations } from 'ember-cp-validations';
 
-export default Component.extend({
+const Validations = buildValidations({
+    surname: [
+        validator('ds-error'),
+        validator('presence', true),
+    ],
+    name: [
+        validator('ds-error'),
+        validator('presence', true),
+    ],
+    fName: [
+        validator('ds-error'),
+        validator('presence', true),
+    ],
+  });
+
+export default Component.extend(Validations,{
+    isFormValid: computed.alias('validations.isValid'),
+    error: false,
+
     actions: {
         submitForm(e) {
             e.preventDefault();
+            if (this.get('isFormValid')) {
+                this.set('error', false) 
 
-            this.onsubmit({
-                id: this.get('idSpeaker'),
-                surname: this.get('surname'),
-                name: this.get('name'),
-                fName: this.get('fName'),
-            });
+                this.onsubmit({
+                    id: this.get('idSpeaker'),
+                    surname: this.get('surname'),
+                    name: this.get('name'),
+                    fName: this.get('fName'),
+                });
+            }
+
+            else {
+                this.set('error', true) 
+            }
         },
     },
 

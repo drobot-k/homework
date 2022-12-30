@@ -2,7 +2,7 @@
     {{#link-to "index"}}
     <a class="navbar-brand">
         <img src="{{env 'rootURL'}}images/logo-dark.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-        Книжный клуб
+        {{t "menu.bookClub"}}
     </a>
     {{/link-to}}
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Открыть меню">
@@ -12,51 +12,58 @@
         <ul class="nav navbar-nav navigation-main">
             <li class="nav-item active">
                 {{#link-to "index"}}
-                <a class="nav-link">Рабочий стол <span class="sr-only">(текущий)</span></a>
+                <a class="nav-link">{{t "menu.desktop"}}<span class="sr-only">(текущий)</span></a>
                 {{/link-to}}
             </li>
             <li class="nav-item">
                 {{#link-to "meetings.index"}}
-                <a class="nav-link">Встречи клуба</a>
+                <a class="nav-link">{{t "menu.meetings"}}</a>
                 {{/link-to}}
             </li>
             <li class="nav-item">
                 {{#link-to "books.index"}}
-                <a class="nav-link">Книги</a>
+                <a class="nav-link">{{t "menu.books"}}</a>
                 {{/link-to}}
             </li>
             <li class="nav-item">
                 {{#link-to "speakers.index"}}
-                <a class="nav-link">Спикеры</a>
+                <a class="nav-link">{{t "menu.speakers"}}</a>
                 {{/link-to}}
             </li>
             <li class="nav-item">
-                <a class="nav-link text-success" href="#">Оставить заявку</a>
+                <a class="nav-link text-success" href="#">{{t "menu.submitYourApplication"}}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-primary" href="#">Запланировать</a>
+                <a class="nav-link text-primary" href="#">{{t "menu.plan"}}</a>
             </li>
         </ul>
+        <div>
+            <select name="language" onchange={{action "changeLang" }}>
+                <option value="ru" selected={{langRu}}>Русский</option>
+                <option value="en" selected={{langEn}}>English</option>
+            </select>
+        </div>
         {{#if session.isAuthenticated}}
             <div class="current-user">
-                Привет, <strong>{{this.session.data.authenticated.tokenData.username}}</strong>
+                {{!-- {{t "menu.hello"}} --}}
+                {{t "menu.hello"}}, <strong>{{this.session.data.authenticated.tokenData.username}}</strong>
                 {{!-- Hello, <strong>{{this.session.data.authenticated.tokenData.username}}</strong> --}}
             </div>
         {{/if}}
         <ul class="nav navbar-nav">
             {{#if session.isAuthenticated}}
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onclick={{action "logout"}}>Выйти</a>
+                    <a class="nav-link" href="#" onclick={{action "logout"}}>{{t "menu.logout"}}</a>
                 </li>
             {{else}}
                 {{#link-to "register"}}
                     <li class="nav-item">
-                        <a class="nav-link text-info" href="register.html">Регистрация</a>
+                        <a class="nav-link text-info" href="register.html">{{t "menu.register"}}</a>
                     </li>
                 {{/link-to}}
                 {{#link-to "login"}}
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Войти</a>
+                        <a class="nav-link" href="login.html">{{t "menu.login"}}</a>
                     </li>
                 {{/link-to}}
             {{/if}}

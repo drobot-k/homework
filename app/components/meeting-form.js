@@ -1,15 +1,37 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 import Component from '@ember/component';
+import { get, set, computed } from '@ember/object';
+import { validator, buildValidations } from 'ember-cp-validations';
 
-export default Component.extend({
+const Validations = buildValidations({
+  validDate: [
+      validator('ds-error'),
+  ],
+});
+
+export default Component.extend(Validations, {
+    isFormValid: computed.alias('validations.isValid'),
+    error: false,
+
     actions: {
         submitForm(e) {
           e.preventDefault();
+
+          if (this.get('isFormValid')) {
+            this.set('error', false) 
     
-          this.onsubmit({
-            date: this.get('date'),
-          });
+            this.onsubmit({
+              date: this.get('date'),
+            });
+          }
+
+          else {
+            this.set('error', true)
+          }
         },
+
+
         onChangeDate(date) {
           this.set('date', date);
         },
