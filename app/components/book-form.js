@@ -76,7 +76,9 @@ export default Component.extend(Validations, {
             }
 
             else {
-                this.set('error', true);  
+                this.set('error', true);
+                const errorLogger = get (this, 'errorLogger');
+                errorLogger.logError('Invalid form');
             }
         },
 

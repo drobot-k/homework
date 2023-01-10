@@ -13,6 +13,29 @@ const server = jsonServer.create()
 const router = jsonServer.router('./tests/test-data/db.json')
 const middlewares = jsonServer.defaults()
 
+const getErrors = (errorsToSend) => {
+  let errors = [];
+  if (errorsToSend && Array.isArray(errorsToSend)) {
+    errors = [...errorsToSend];
+  }
+
+  return {
+    errors
+  };
+};
+
+const getError = (title, detail, status, pathToAttribute) => {
+  let errors = [];
+  errors.push({
+    title,
+    detail,
+    status,
+    source: pathToAttribute ? { pointer: pathToAttribute } : null
+  });
+
+  return getErrors(errors);
+};
+
 const secretKey = '09f26e402586e2faa8da4c98a35f1b20d6b033c6097befa8be3486a829587fe2f90a832bd3ff9d42710a4da095a2ce285b009f0c3730cd9b8e1af3eb84df6611';
 const hashingSecret = "f844b09ff50c";
 
@@ -42,29 +65,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-const getErrors = (errorsToSend) => {
-  let errors = [];
-  if (errorsToSend && Array.isArray(errorsToSend)) {
-    errors = [...errorsToSend];
-  }
-
-  return {
-    errors
-  };
-};
-
-const getError = (title, detail, status, pathToAttribute) => {
-  let errors = [];
-  errors.push({
-    title,
-    detail,
-    status,
-    source: pathToAttribute ? { pointer: pathToAttribute } : null
-  });
-
-  return getErrors(errors);
-};
-
 const getUnauthorizedError = () => getError('Login', 'You are not authorized, please log in', 401, null);
 const getForbiddenError = () => getError('Forbidden', 'You don\'t have permissions to this resource', 403, null);
 
@@ -75,7 +75,7 @@ const getBaseRoute = (req) => {
 
 const isAuthorized = (req) => {
   const baseRoute = getBaseRoute(req);
-  if (req.path === '/recaptcha' || req.path === '/users' || req.path === '/token' || ((baseRoute === 'meetings' || baseRoute === 'books' || baseRoute === 'speakers' || baseRoute === 'reports') && req.method === 'GET')) {
+  if (req.path === '/recaptcha' || req.path === '/users' || req.path === '/token' || req.path === '/logger-errors' || ((baseRoute === 'meetings' || baseRoute === 'books' || baseRoute === 'speakers' || baseRoute === 'reports') && req.method === 'GET')) {
     return 200;
   }
 
@@ -324,7 +324,13 @@ server.use((request, response, next) => {
       return temp !=undefined;
     }).value();
     response.json(meetings2);
-  } else {
+  } 
+  
+  else if (request.method === 'POST' && request.path === '/logger-errors') {
+    request.body.clientIP = request.ip;
+    next();
+  }
+  else {
     next();
   }
 });

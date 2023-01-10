@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service'
+import { get, set, computed } from '@ember/object';
 // import { Promise } from 'rsvp';
 import { later } from '@ember/runloop'
 // import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
@@ -25,7 +27,9 @@ export default Route.extend( {
                     resolve(books);
                 }
                 catch (e) {
-                    reject('Connection failed');
+                    this.set('error', true);
+                    const errorLogger = get (this, 'errorLogger');
+                    errorLogger.logError('Connection failed');
                 }  
             }, 1000);
         });

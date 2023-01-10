@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service'
 import { later } from '@ember/runloop'
+import { get, set, computed } from '@ember/object';
 
 export default Route.extend({
     dataService: service ('data'),
@@ -20,7 +22,9 @@ export default Route.extend({
                     resolve(speakers);
                 }
                 catch (e) {
-                    reject('Connection failed');
+                    this.set('error', true);
+                    const errorLogger = get (this, 'errorLogger');
+                    errorLogger.logError('Connection failed');
                 }   
             }, 1000);
         });
