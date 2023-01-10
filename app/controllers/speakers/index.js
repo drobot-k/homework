@@ -1,5 +1,7 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
+import { debounce } from '@ember/runloop';
+import { get, set } from '@ember/object';
 
 export default Controller.extend({
     dataService: service ('data'),
@@ -13,10 +15,14 @@ export default Controller.extend({
             this.get('store').unloadRecord(speaker);
         },
 
-        searchSpeakers(s) {
-            s.preventDefault(); 
-            this.get('dataService').getSpeakers(this.get('search'));
-            this.send('refreshSpeakers');
+        searchChange() {
+            // s.preventDefault(); 
+            // this.get('dataService').getSpeakers(this.get('search'));
+            // this.send('refreshSpeakers');
+            debounce(() => {
+                set(this, 'search', get(this, 'searchSpeakers'));
+                this.send('refreshSpeakers');
+            }, 1000);
         }
     }
 });
